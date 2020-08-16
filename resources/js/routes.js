@@ -2,7 +2,7 @@ import Vue from "vue";
 //Per usarlo eseguire: npm install vue-router
 import VueRouter from "vue-router";
 // importare le pages
-import Home from "./pages/Home";
+import Test from "./pages/Test";
 
 Vue.use(VueRouter);
 
@@ -10,9 +10,9 @@ const router = new VueRouter({
     mode: "history",
     routes: [
         {
-            path: "/",
-            name: "home",
-            component: Home
+            path: "/login",
+            name: "login",
+            component: Test
         }
     ]
 });
