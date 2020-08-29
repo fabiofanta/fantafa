@@ -1,15 +1,15 @@
 <template>
   <div>
-    <test-component></test-component>
+    <login-component></login-component>
   </div>
 </template>
 
 <script>
-import TestComponent from "../components/TestComponent";
+import LoginComponent from "../components/LoginComponent";
 
 export default {
   components: {
-    TestComponent,
+    LoginComponent,
   },
   data() {
     return {};

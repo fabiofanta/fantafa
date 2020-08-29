@@ -3,8 +3,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 // importare le pages;
 
-import Test from "./pages/Test";
-import Home from "./pages/Home";
+import LoginPage from "./pages/LoginPage";
+import AccountPage from "./pages/AccountPage";
 import store from "./vuex.js";
 
 
@@ -16,12 +16,33 @@ const router = new VueRouter({
         {
             path: "/login",
             name: "login",
-            component: Test
+            component: LoginPage
         },
         {
             path: "/home",
-            name: "Home",
-            component: Home
+            name: "home",
+            component: AccountPage,
+            beforeEnter: (to, from, next) => {
+                    axios.get('api/test')
+                    .then(function (response) {
+                        // handle success
+                        if (response.data.success == 1) {
+                            next();
+                        }
+                    })
+                    .catch(function(error) {
+                        next({ path: '/login' });
+                    })
+                // store.dispatch('retriveData').then(response => {
+                //     // if (response.data.success == 1) next()
+                //     // else next(false)
+                //     console.log(response + 'test');
+                // })
+
+                // if (store.dispatch('retriveData') throw 401) next(false)
+                // else next()
+            },
+            store:store
         }
     ]
 });

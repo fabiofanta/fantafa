@@ -5,11 +5,29 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
-    authenticated: false,
+      user: ''
   },
   mutations: {
-      setAuthentication(state,status) {
-          state.authenticated = status;
+      setPost(state,user) {
+          this.state.user = user;
+      }
+
+  },
+  actions: {
+      retriveData({commit}) {
+          axios.get('api/test')
+          .then(response => {
+              commit('setPost',response.data.user);
+
+          })
+      },
+      logout() {
+          axios.post('api/logout')
+          .then(response => {
+              return response;
+
+
+          })
       }
   }
 });

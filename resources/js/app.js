@@ -11,7 +11,7 @@
 
  import Routes from "./routes.js";
 
- // import store from "./vuex.js";
+ import store from "./vuex.js";
 
  import App from "./views/App";
 
@@ -20,7 +20,7 @@
      el: "#app",
      router: Routes,
      render: h => h(App),
-     // store: store
+     store: store
  });
 
  export default app;
