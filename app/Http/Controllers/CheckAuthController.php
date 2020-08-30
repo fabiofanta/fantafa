@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 
-class TestController extends Controller
+class CheckAuthController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class TestController extends Controller
      */
     public function index()
     {
-        $test = Auth::user();
+        $user = Auth::user();
         $data['success'] = 1;
-        $data['user'] = $test;
+        $data['user'] = $user;
 
         return response()->json($data, '200');
 

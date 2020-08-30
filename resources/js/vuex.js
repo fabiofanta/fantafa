@@ -15,7 +15,7 @@ const store = new Vuex.Store({
   },
   actions: {
       retriveData({commit}) {
-          axios.get('api/test')
+          axios.get('api/check-auth')
           .then(response => {
               commit('setPost',response.data.user);
 

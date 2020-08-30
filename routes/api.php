@@ -19,5 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/login','Auth\LoginController@login');
+Route::post('/register','Auth\RegisterController@register');
 Route::middleware('auth:sanctum')->post('/logout','Auth\LoginController@logout');
-Route::middleware('auth:sanctum')->get('/test','TestController@index');
+Route::middleware('auth:sanctum')->get('/check-auth','CheckAuthController@index');

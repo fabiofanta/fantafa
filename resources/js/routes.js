@@ -5,6 +5,7 @@ import VueRouter from "vue-router";
 
 import LoginPage from "./pages/LoginPage";
 import AccountPage from "./pages/AccountPage";
+import RegisterPage from "./pages/RegisterPage";
 import store from "./vuex.js";
 
 
@@ -19,11 +20,16 @@ const router = new VueRouter({
             component: LoginPage
         },
         {
+            path: "/register",
+            name: "register",
+            component: RegisterPage
+        },
+        {
             path: "/home",
             name: "home",
             component: AccountPage,
             beforeEnter: (to, from, next) => {
-                    axios.get('api/test')
+                    axios.get('api/check-auth')
                     .then(function (response) {
                         // handle success
                         if (response.data.success == 1) {
